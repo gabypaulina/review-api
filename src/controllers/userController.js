@@ -13,7 +13,7 @@ const users = require("../models/user")(sequelize, DataTypes);
 // random string
 // const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-async function getUser(username) {
+async function searchUser(username) {
     let userGet = await users.findAll({
         where: {
             username: username,
@@ -26,4 +26,20 @@ const coba = (req, res) => {
     return res.status(200).send("Helo")
 }
 
-module.exports = {coba};
+//user endpoint
+const getUser = async (req, res) => {
+    let username = req.body.username;
+    let schema = Joi.object({
+        username: Joi.string().required().messages({
+            "any.required": "{{#label}} harus diisi",
+            "string.empty": "{{#label}} tidak boleh blank",
+        })
+    })
+    try {
+        let res = await schema.validateAsync(req.body)
+    }catch (error) {
+        return res.status(400).send(error.toString())
+    } 
+    return res.status(200).send({"username": username})
+}
+module.exports = {coba, getUser};
