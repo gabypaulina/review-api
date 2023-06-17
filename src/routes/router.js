@@ -1,9 +1,7 @@
 const router = require("express").Router();
 
-//user endpoints
-const { getUser, coba, searchUser } = require("../controllers/userController");
+const {coba} = require("../controller/adminController");
 
-router.get("/coba", coba);
-router.get("/users", getUser)
+router.post("/test", coba);
 
 module.exports = router;
