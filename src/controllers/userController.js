@@ -42,4 +42,19 @@ const getUser = async (req, res) => {
     } 
     return res.status(200).send({"username": username})
 }
+
+const getAllUser = async (req,res) => {
+    
+}
+
+const register = async (req,res) =>{
+
+}
+
+const login = async (req,res) =>{
+
+}
+
+
+
 module.exports = {coba, getUser};
