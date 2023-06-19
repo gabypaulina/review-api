@@ -23,7 +23,11 @@ const register = async (req, res) => {
   let schema = Joi.object({});
 };
 
-//let newId = "U" + (users_db[0].length + 1).toString().padStart(3, "0");
+let admin_db = await sequelize.query("select * from admin", {
+  type: Sequelize.SELECT,
+});
+
+let newId = "U" + (admin_db[0].length + 1).toString().padStart(3, "0");
 
 const coba = (req, res) => {
   console.log("done");
