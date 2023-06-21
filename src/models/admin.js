@@ -25,7 +25,8 @@ module.exports = (sequelize, DataTypes) => {
       email: DataTypes.STRING,
       api_key: DataTypes.STRING,
       api_hit: DataTypes.INTEGER,
-      saldo: DataTypes.INTEGER
+      saldo: DataTypes.INTEGER,
+      role: DataTypes.STRING
     }, 
     {
     sequelize,
