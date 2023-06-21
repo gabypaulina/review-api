@@ -29,11 +29,16 @@ const getUser = async (req, res) => {
 const searchUser = async (req, res) => {
     let username = req.params.username
 
-    const users = await searchUsername(username)
+    let user = await selectUsersByUsername(username);
+    if (!user) {
+        return res.status(404).send({ message: "User tidak ditemukan" });
+    }
 
-    return res.status(200).send(users)
+    return res.status(200).send({
+        idUser: user.idUser,
+        username: user.username
+    })
 }
-
 
 async function getIdUsername() {
     let [users, metadata] = await sequelize.query(
@@ -55,7 +60,7 @@ async function getIdUsername() {
 //     return users;
 // }
 
-async function searchUsername(username) {
+async function selectUsersByUsername(username) {
     let [users, metadata] = await sequelize.query(
       "select * from users where username = :username",
       {
@@ -64,7 +69,7 @@ async function searchUsername(username) {
         },
       }
     );
-    return users;
+    return users[0];
   }
 
 module.exports = { getUser, searchUser };

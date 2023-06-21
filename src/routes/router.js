@@ -1,5 +1,7 @@
 const router = require("express").Router();
 
+const { required } = require("joi");
+//USER ENDPOINT
 const {coba, register, login} = require("../controller/adminController");
 const {getUser, searchUser} = require("../controller/userController");
 
@@ -13,8 +15,12 @@ router.get("/users/login", login)
 router.get("/users", getUser)
 router.get("/users/:username", searchUser)
 
+//REVIEW ENDPOINT
+const { postReview, deleteReview } = require("../controller/postController")
+
 //review
-router.post("/review")
+router.post("/review", postReview)
+router.delete("/review/:review_id", deleteReview)
 
 
 

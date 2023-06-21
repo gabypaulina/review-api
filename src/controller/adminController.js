@@ -178,7 +178,7 @@ const login = async (req, res) => {
         }else{
           let token = jwt.sign(
             {
-              idUser: users[0].idUser
+              id: users[0].idUser
             },
             JWT_KEY,
             { expiresIn: "3600s"}
@@ -200,8 +200,6 @@ const login = async (req, res) => {
 
     return res.status(400).send({ message: error.message });
   }
-
-  
 }
 
 const coba = (req, res) => {
