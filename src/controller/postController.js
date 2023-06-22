@@ -43,7 +43,7 @@ const postReview = async (req, res) => {
 
         if(!req.header("x-auth-token")) {
             // fs.unlinkSync(`./uploads/${req.file.filename}`)
-            return res.status(400).sernd({message: "Token tidak ditemukan"})
+            return res.status(400).send({message: "Token tidak ditemukan"})
         }
         
         try{
