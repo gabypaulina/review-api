@@ -101,7 +101,7 @@ const register = async (req, res) => {
               password: password,
               email: email,
               api_key: apiKey,
-              api_hit: 3,
+              api_hit: 10,
               role: role
             },
           }
@@ -159,10 +159,15 @@ const login = async (req, res) => {
             JWT_KEY,
             { expiresIn: "3600s"}
           );
-          return res.status(200).send({
+
+          let result = {
             user: id,
             api_hit: admins[0].api_hit - 1,
             token: token,
+          }
+          
+          return res.status(200).send({
+            result,
           });
         }
       }
@@ -253,5 +258,16 @@ async function findAdminById(keyword) {
   );
   return admins;
 }
+
+// async function updateAdmin(keyword) {
+//   let [admins, metadata] = await sequelize.query(
+//     "UPDATE api_hit set WHERE admin_id=?",
+//     {
+//       type: Sequelize.SELECT,
+//       replacements: [`%${keyword}%`],
+//     }
+//   );
+//   return admins;
+// }
 
 module.exports = { coba, register, login };
