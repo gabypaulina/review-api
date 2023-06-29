@@ -32,6 +32,61 @@ const upload = multer({
 const users = require("../models/users")(sequelize, DataTypes)
 const post = require("../models/review")(sequelize, DataTypes)
 
+async function AxiosProducts() {
+    const options = {
+        method: 'GET',
+        url: 'https://yotpo.p.rapidapi.com/apps/B02uug6tF2uEA0Denhj0c9PV73y5PEOuKFmTCGb1/products',
+        params: {
+        },
+        headers: {
+          'X-RapidAPI-Key': 'e4a7b1cb50msh26faaaa06e35551p116f2bjsnc9d69790c133',
+          'X-RapidAPI-Host': 'yotpo.p.rapidapi.com'
+        }
+    };
+    let data;
+    try {
+        const response = await axios.request(options);
+        data = response.data;
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+
+    if(!data.response.total_products){
+        return null;
+    }
+
+    let amount = parseInt(data.response.total_products);
+
+    const options2 = {
+        method: 'GET',
+        url: 'https://yotpo.p.rapidapi.com/apps/B02uug6tF2uEA0Denhj0c9PV73y5PEOuKFmTCGb1/products',
+        params: {
+            count: amount
+        },
+        headers: {
+          'X-RapidAPI-Key': 'e4a7b1cb50msh26faaaa06e35551p116f2bjsnc9d69790c133',
+          'X-RapidAPI-Host': 'yotpo.p.rapidapi.com'
+        }
+    };
+
+    try {
+        const response = await axios.request(options2);
+        data = response.data;
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+
+    let t = data.response.products;
+
+    if(!data||!t){
+        return null;
+    }
+    return t;
+
+}
+
 const postReview = async (req, res) => {
     // const uploadFoto = upload.single("Upload_Foto");
     // // uploadFoto(req, res => async function (err){
@@ -65,6 +120,17 @@ const postReview = async (req, res) => {
                     return res.status(404).send(error.toString());
                 }
 
+                const data = await AxiosProducts();
+                if(!data){
+                    return res.status(500).send({msg:`Internal Server Error`})
+                }
+
+                let item = data.find(element => element.id == item_id);
+
+                if(!item){
+                    return res.status(404).send({msg: "Item is not found"});
+                }
+
                 let review_db = await sequelize.query("SELECT * FROM reviews", {
                     type: Sequelize.SELECT,
                 });
@@ -78,6 +144,7 @@ const postReview = async (req, res) => {
                 return res.status(201).send({
                     review_id: newId,
                     item_id: item_id,
+                    item_desc: item,
                     rating: rating,
                     content: content
                 });
