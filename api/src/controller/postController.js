@@ -95,68 +95,226 @@ const postReview = async (req, res) => {
 }
 
 const deleteReview = async (req, res) => {
-//     let token = req.header("x-auth-token")
-//     if(!req.header("x-auth-token")){
-//         return res.status(400).send({message: "Token tidak ditemukan"})
-//     }
+    let token = req.header("x-auth-token")
+    if(!req.header("x-auth-token")){
+        return res.status(400).send({message: "Token tidak ditemukan"})
+    }
 
-//     try{
-//         let userdata = jwt.verify(token, JWT_KEY)
-//         if((userdata.id).substr(0,1) == 'A'){
+    try{
+        let userdata = jwt.verify(token, JWT_KEY)
+        
+        if((userdata.id).substr(0,1) == 'A'){
 
-//             let { review_id } = req.params;
-            
-//             let [review_db] = await sequelize.query(
-//                 "SELECT * FROM reviews WHERE review_id=?",
-//                 {
-//                     type: sequelize.SELECT,
-//                     replacements: [review_id.id],
-//                 }
-//             );
+            let { review_id } = req.params;
+            if(review_id == ":review_id"){
+                return res.status(404).send({ message: "Review_id harus diisi" });
+            } 
 
+            const reviewFound = await findReviewById(review_id);
 
-//             let newClass = "";
-//             const class_db = user_db[0].class.split(",");
-//             let found = "";
-//             for(let i = 0; i<class_db.length; i++){
-//                 if(class_db[i] == id_class){
-//                     found = class_db[i]
-//                 }else{
-//                     if(newClass == ""){
-//                         newClass = class_db[i]
-//                     }else{
-//                         newClass = newClass + `,${class_db[i]}`
-//                     }
-//                 }
-//             }
+            const response = {
+                message: "Review has been deleted",
+                review_id: reviewFound.review_id,
+                item_id: reviewFound.item_id,
+                rating: reviewFound.rating,
+                content: reviewFound.content,
+            }
 
-//             if(!found){
-//                 return res.status(400).send({message: "User tidak tergabung kedalam kelas"})
-//             }else{
-//                 let [class_db] = await sequelize.query(
-//                 "SELECT name FROM classes WHERE id_class=?",
-//                     {
-//                         type: sequelize.SELECT,
-//                         replacements: [id_class]
-//                     }
-//                 )
+            let [results, metadata] = await sequelize.query(
+                `delete from reviews WHERE review_id like ?`,
+                {
+                    type: sequelize.SELECT,
+                    replacements: [`%${review_id}%`],
+                }
+              );
 
-//                 let [user, metadata] = await sequelize.query(
-//                 "UPDATE users SET class=? WHERE id_user=?",
-//                     {
-//                         type: sequelize.SELECT,
-//                         replacements: [newClass,id_user],
-//                     }
-//                 );
-//                 return res.status(200).send({message: `Berhasil drop kelas ${class_db[0].name}`});
-//             }  
-//         }else{
-//             return res.status(400).send({message: "Maaf anda bukan student"})
-//         }
-//     }catch(err){
-//         return res.status(400).send({message: "Token salah"})
-//     }
+            const decrementApi = await kurangiApi(userdata.id);
+              
+            return res.status(200).send(response);
+        }
+    }catch(err){
+        return res.status(400).send(err.toString())
+    }
 }
+
+const editReview = async (req, res) => {
+    let token = req.header("x-auth-token")
+    if(!req.header("x-auth-token")){
+        return res.status(400).send({message: "Token tidak ditemukan"})
+    }
+
+    ({ rating, content } = req.body);
+    let schema = Joi.object({
+        rating: Joi.string().required(),
+        content: Joi.string().required()
+    });
+
+    try{
+        let userdata = jwt.verify(token, JWT_KEY)
+        
+        if((userdata.id).substr(0,1) == 'U'){
+
+            let { review_id } = req.params;
+            if(review_id == ":review_id"){
+                return res.status(404).send({ message: "Review_id harus diisi" });
+            } 
+
+            const reviewFound = await findReviewById(review_id);
+
+            const response = {
+                message: "Review has been edited",
+                review_id: review_id, 
+                item_id: reviewFound.item_id,
+                rating: req.body.rating,
+                content: req.body.content,
+            }
+
+            let [results, metadata] = await sequelize.query(
+                "UPDATE reviews SET rating=?, content=? WHERE review_id=?",
+                    {
+                        type: sequelize.SELECT,
+                        replacements: [req.body.rating,req.body.content,review_id],
+                    }
+              );
+              
+            return res.status(200).send(response);
+        }
+    }catch(err){
+        return res.status(400).send(err.toString())
+    }
+}
+
+const sortLow = async (req, res) => {
+    let token = req.header("x-auth-token")
+    if(!req.header("x-auth-token")){
+        return res.status(400).send({message: "Token tidak ditemukan"})
+    }
+
+    const sort = Joi.string().required();
+    const validationResult = sort.validate(req.body.username);
+
+    try{
+        let userdata = jwt.verify(token, JWT_KEY)
+        
+        // let avgItem;
+        // let itemId;
+        // var avgg;
+        // var dataavg;
+        
+        if((userdata.id).substr(0,1) == 'U'){
+            const avg = await getAvgReviewLowest();
+            const hasil = [];
+
+            for (let i = 0; i < avg.length; i++) {
+                hasil.push(avg[i]);
+            }
+
+            // const allItems = await getAllItems();
+            // const allReviews = await getAllReviews();
+            // // const data = [][2];
+            // var data = [];
+            // for (let i = 0; i < allItems.length; i++) {
+            //     avgg = await getAvgReview();
+            //     dataavg.push(avgg);
+            // }
+
+            // for (let i = 0; i < allReviews.length; i++) {
+            //     data.push(allReviews[i]);
+            // }
+
+            // data.sort((x,y) => {
+            //     return x - y;
+            // })
+
+            // // allItems.forEach(async (each) => {
+            // //     const eachItems = {...each};
+
+            // //     eachItems.item_id = each.item_id;
+            // //     eachItems.avg = await getAvgReview(each.item_id)
+
+            // //     data.push(eachItems);
+            // // });
+
+            // for (let i = 0; i < allItems.length; i++) {
+            //     itemId = allItems[i].item_id;
+            //     avgItem = await getAvgReview(itemId)
+
+            //     data[i][0].push(itemId);
+            //     data[i][1].push(avgItem);
+
+            // }
+              
+            return res.status(200).send(hasil);
+        }
+    }catch(err){
+        return res.status(400).send(err.toString())
+    }
+}
+
+const sortHigh = async (req, res) => {
+    let token = req.header("x-auth-token")
+    if(!req.header("x-auth-token")){
+        return res.status(400).send({message: "Token tidak ditemukan"})
+    }
+
+    const sort = Joi.string().required();
+    const validationResult = sort.validate(req.body.username);
+
+    try{
+        let userdata = jwt.verify(token, JWT_KEY)
+        
+        if((userdata.id).substr(0,1) == 'U'){
+            const avg = await getAvgReviewHighest();
+            const hasil = [];
+
+            for (let i = 0; i < avg.length; i++) {
+                hasil.push(avg[i]);
+            }
+            return res.status(200).send(hasil);
+        }
+    }catch(err){
+        return res.status(400).send(err.toString())
+    }
+}
+
+    const kesimpulan = async (req, res) => {
+        // const options = {
+        // method: 'POST',
+        // url: 'https://textvis-word-cloud-v1.p.rapidapi.com/v1/textToCloud',
+        // headers: {
+        //     'content-type': 'application/json',
+        //     'X-RapidAPI-Key': 'c01baa427cmshb5750a8b8799adcp179580jsn442b05114c8a',
+        //     'X-RapidAPI-Host': 'textvis-word-cloud-v1.p.rapidapi.com'
+        // },
+        // data: {
+        //     text: 'This is a test. I repeat, this is a test. We are only testing the functionality of this api, nothing else. End of test.',
+        //     scale: 0.5,
+        //     width: 400,
+        //     height: 400,
+        //     colors: [
+        //     '#375E97',
+        //     '#FB6542',
+        //     '#FFBB00',
+        //     '#3F681C'
+        //     ],
+        //     font: 'Tahoma',
+        //     use_stopwords: true,
+        //     language: 'en',
+        //     uppercase: false
+        // }
+        // };
+
+        // try {
+            
+        //     const response = await axios.request(options);
+        //     console.log(response.data);
+        //     return res.status(200).send(response.data);
+        // } catch (error) {
+        //     console.error(error);
+        // }
+
+}
+
 async function findReviewById(review_id) {
     let [reviews, metadata] = await sequelize.query(
       "SELECT * FROM reviews WHERE review_id=?",
@@ -176,4 +334,64 @@ const checkAvailableUser = async (review_id) => {
     }
 }
 
-module.exports = {postReview, deleteReview}
+async function kurangiApi(admin_id) {
+    const data = await findUserById(admin_id);
+    let totalApi = data.api_hit -= 1;
+    let [admins, metadata] = await sequelize.query(
+        "UPDATE admins SET api_hit=? WHERE admin_id=?",
+            {
+                type: sequelize.SELECT,
+                replacements: [totalApi, admin_id],
+            }
+    );
+return admins[0];
+}
+
+async function findUserById(admin_id) {
+    let [admins, metadata] = await sequelize.query(
+      "SELECT * FROM admins WHERE admin_id like ?",
+      {
+        type: sequelize.SELECT,
+        replacements: [`%${admin_id}%`],
+      }
+    );
+    if (reviews === undefined) {
+        throw new Error("Admin tidak ditemukan");
+      }
+    return admins[0];
+}
+
+async function getAvgReviewLowest() {
+    let [reviews, metadata] = await sequelize.query(
+    "SELECT item_id, AVG(rating) FROM reviews GROUP BY item_id ORDER BY AVG(rating) ASC",
+    {
+        type: Sequelize.SELECT,
+    }
+    );
+    return reviews;
+}
+async function getAvgReviewHighest() {
+    
+}
+
+async function getAllItems() {
+    let [items, metadata] = await sequelize.query(
+      "SELECT * FROM items",
+      {
+        type: sequelize.SELECT,
+      }
+    );
+    return items;
+}
+
+async function getAllReviews() {
+    let [reviews, metadata] = await sequelize.query(
+      "SELECT * FROM reviews",
+      {
+        type: sequelize.SELECT,
+      }
+    );
+    return reviews;
+}
+
+module.exports = {postReview, deleteReview, editReview, sortLow, sortHigh, kesimpulan}

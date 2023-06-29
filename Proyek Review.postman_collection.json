@@ -1,0 +1,1151 @@
+{
+	"info": {
+		"_postman_id": "cfc2539a-b097-4c21-8ece-aabd724ecfa9",
+		"name": "Proyek Review",
+		"description": "Web service add-on review adalah sebuah layanan yang dapat ditambahkan pada sebuah situs web yang berguna untuk user melakukan ulasan. Layanan ini terdapat fitur - fitur seperti menambahkan review baru, mengedit review, sort review, filter review berdasarkan rating, delete review, reply review. \nWeb service ini menggunakan 3rd party API word cloud untuk memudahkan pembaca review ketika review sangat banyak dengan merangkumnya.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Developer",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "ok",
+									"description": "Username yang akan digunakan. Wajib diisi dan unik.",
+									"type": "default"
+								},
+								{
+									"key": "email",
+									"value": "oke@gmail.com",
+									"description": "Email yang hendak digunakan. Wajib diisi.",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "12345",
+									"description": "Password yang ingin digunakan. Wajib diisi.",
+									"type": "default"
+								},
+								{
+									"key": "role",
+									"value": "u",
+									"description": "Pilih peran sebagai admin/user. Isi dengan abjad. Wajib diisi.",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/api/users/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"register"
+							]
+						},
+						"description": "Ini adalah endpoint untuk register. Parameter yang diminta adalah id developer yang hendak register."
+					},
+					"response": [
+						{
+							"name": "Register Developer",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "ok",
+											"description": "Username yang akan digunakan. Wajib diisi dan unik.",
+											"type": "default"
+										},
+										{
+											"key": "email",
+											"value": "oke@gmail.com",
+											"description": "Email yang hendak digunakan. Wajib diisi.",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "12345",
+											"description": "Password yang ingin digunakan. Wajib diisi.",
+											"type": "default"
+										},
+										{
+											"key": "role",
+											"value": "a",
+											"description": "Pilih peran sebagai admin/user. Isi dengan abjad. Wajib diisi.",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:3000/api/users/register",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "109"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6d-MWZ0Hj7Zv34n6qm28e7KMSXnXOg\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 29 Jun 2023 16:36:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"admin_id\": \"A003\",\n    \"username\": \"ok\",\n    \"password\": \"12345\",\n    \"email\": \"oke@gmail.com\",\n    \"api_key\": \"ckjqi\",\n    \"api_hit\": 10\n}"
+						},
+						{
+							"name": "Register User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "ok",
+											"description": "Username yang akan digunakan. Wajib diisi dan unik.",
+											"type": "default"
+										},
+										{
+											"key": "email",
+											"value": "oke@gmail.com",
+											"description": "Email yang hendak digunakan. Wajib diisi.",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "12345",
+											"description": "Password yang ingin digunakan. Wajib diisi.",
+											"type": "default"
+										},
+										{
+											"key": "role",
+											"value": "u",
+											"description": "Pilih peran sebagai admin/user. Isi dengan abjad. Wajib diisi.",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:3000/api/users/register",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"39-NYDk6cK66PUN6SZ/9fjyMWHUpBM\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 29 Jun 2023 16:36:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"idUser\": \"U003\",\n    \"username\": \"ok\",\n    \"email\": \"oke@gmail.com\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "A001",
+									"description": "id yang hendak login. Wajib ada.",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "12345",
+									"description": "password yang hendak login. Wajib ada.",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/api/users/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						},
+						"description": "Ini adalah endpoint untuk login, melihat data developer, dan mendapatkan token. Parameter yang diminta adalah id developer yang hendak login."
+					},
+					"response": [
+						{
+							"name": "Login Developer",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "id",
+											"value": "A001",
+											"description": "id yang hendak login. Wajib ada.",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "12345",
+											"description": "password yang hendak login. Wajib ada.",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:3000/api/users/login",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "217"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d9-p+tLNjEB+cCXLq76ULkXE1ewM9A\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 29 Jun 2023 15:42:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": {\n        \"user\": \"A001\",\n        \"api_hit\": 7,\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoieXdpbjAiLCJpZCI6IkEwMDEiLCJpYXQiOjE2ODgwNTMzMjMsImV4cCI6MTY4ODA1NjkyM30.HElHdlVCXoPHdWdUHYvprD-lvHrl7ULnWaFC4YIMKoI\"\n    }\n}"
+						},
+						{
+							"name": "Login User",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "id",
+											"value": "U001",
+											"description": "id yang hendak login. Wajib ada.",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "12345",
+											"description": "password yang hendak login. Wajib ada.",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:3000/api/users/login",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "170"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"aa-2o17Nr64Hya6ri7mWljWJMV1DS0\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 29 Jun 2023 16:32:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user\": \"U001\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlUwMDEiLCJpYXQiOjE2ODgwNTYzNDEsImV4cCI6MTY4ODA5MjM0MX0.uHouE5v-6zsyStgXiezP-Oz1_xfjO_8fMwD6_Sf0cy0\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Folder ini berisi sekumpulan request yang berhubungan dengan data developer"
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get All Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3000/api/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "Ini adalah endpoint untuk melihat semua user beserta datanya."
+					},
+					"response": [
+						{
+							"name": "Get All Users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "localhost:3000/api/users",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "109"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6d-Wwm0KI1CKYswRFFtZ/2QN/YPvjc\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 29 Jun 2023 16:43:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"idUser\": \"U001\",\n        \"username\": \"stst\"\n    },\n    {\n        \"idUser\": \"U002\",\n        \"username\": \"nyenye\"\n    },\n    {\n        \"idUser\": \"U003\",\n        \"username\": \"ok\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get User By Username",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/users/:username",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								":username"
+							],
+							"variable": [
+								{
+									"key": "username",
+									"value": "nyenye"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get User By Username",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/users/:username",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users",
+										":username"
+									],
+									"variable": [
+										{
+											"key": "username",
+											"value": "nyenye"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "37"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"25-tLj8aaRh4xwB/7FBd+zqZBBDxRs\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 29 Jun 2023 16:44:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"idUser\": \"U002\",\n    \"username\": \"nyenye\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Folder ini berisi sekumpulan request yang berhubungan dengan data user"
+		},
+		{
+			"name": "Review",
+			"item": [
+				{
+					"name": "Post Review",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlUwMDEiLCJpYXQiOjE2ODgwNTI5MjAsImV4cCI6MTY4ODA1NjUyMH0.ZdPp4hEEEN9AtIsZlya1a8OGl6vGy-Cf40aF_4bomOI",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "item_id",
+									"value": "I001",
+									"type": "default"
+								},
+								{
+									"key": "rating",
+									"value": "4",
+									"type": "default"
+								},
+								{
+									"key": "content",
+									"value": "de bestt",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/api/review",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"review"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Review",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoieXdpbjAiLCJpZCI6IkEwMDEiLCJpYXQiOjE2ODgwNTMzMjMsImV4cCI6MTY4ODA1NjkyM30.HElHdlVCXoPHdWdUHYvprD-lvHrl7ULnWaFC4YIMKoI",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3000/api/review/:review_id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"review",
+								":review_id"
+							],
+							"variable": [
+								{
+									"key": "review_id",
+									"value": "R001"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Review",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "x-auth-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoieXdpbjAiLCJpZCI6IkEwMDEiLCJpYXQiOjE2ODgwNTMzMjMsImV4cCI6MTY4ODA1NjkyM30.HElHdlVCXoPHdWdUHYvprD-lvHrl7ULnWaFC4YIMKoI",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "localhost:3000/api/review/:review_id",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"review",
+										":review_id"
+									],
+									"variable": [
+										{
+											"key": "review_id",
+											"value": "R001"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "105"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"69-lO1nsvCFu7B3Pgdaf5JdOx7w/oc\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 29 Jun 2023 15:51:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Review has been deleted\",\n    \"review_id\": \"R001\",\n    \"item_id\": \"I001\",\n    \"rating\": 4,\n    \"content\": \"de bestt\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit Review",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlUwMDEiLCJpYXQiOjE2ODgwMjczNDMsImV4cCI6MTY4ODAzMDk0M30.J_22B9kiJHZfdQQY5PMVRlLNalj5Yq86qadWotjXyn0",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "rating",
+									"value": "3",
+									"type": "default"
+								},
+								{
+									"key": "content",
+									"value": "gjd gut",
+									"type": "default"
+								},
+								{
+									"key": "uploadFoto",
+									"value": "",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/api/review/:review_id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"review",
+								":review_id"
+							],
+							"variable": [
+								{
+									"key": "review_id",
+									"value": "R001"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit Review",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "x-auth-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlUwMDEiLCJpYXQiOjE2ODgwMjczNDMsImV4cCI6MTY4ODAzMDk0M30.J_22B9kiJHZfdQQY5PMVRlLNalj5Yq86qadWotjXyn0",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "rating",
+											"value": "3",
+											"type": "default"
+										},
+										{
+											"key": "content",
+											"value": "gjd gut",
+											"type": "default"
+										},
+										{
+											"key": "uploadFoto",
+											"value": "",
+											"type": "default",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:3000/api/review/:review_id",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"review",
+										":review_id"
+									],
+									"variable": [
+										{
+											"key": "review_id",
+											"value": "R001"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "105"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"69-gxcIssCbHmxzlIgr+xOz4/GcnKA\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 29 Jun 2023 08:34:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Review has been edited\",\n    \"review_id\": \"R001\",\n    \"item_id\": \"I001\",\n    \"rating\": \"3\",\n    \"content\": \"gjd gut\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Sort Low - High",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlUwMDEiLCJpYXQiOjE2ODgwNDQ5ODgsImV4cCI6MTY4ODA4MDk4OH0.SzbdaMzG0eAyqvrtcSDbRa0J1tMPLrB_eMLCgO8vLn0",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:3000/api/review/sortLow",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"review",
+								"sortLow"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sort Low - High",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-auth-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlUwMDEiLCJpYXQiOjE2ODgwNDQ5ODgsImV4cCI6MTY4ODA4MDk4OH0.SzbdaMzG0eAyqvrtcSDbRa0J1tMPLrB_eMLCgO8vLn0",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "localhost:3000/api/review/sortLow",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"review",
+										"sortLow"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "85"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"55-f9sWNvaoMm1IBhExvcF1nywYybc\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 29 Jun 2023 14:15:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"item_id\": \"I001\",\n        \"AVG(rating)\": \"3.6667\"\n    },\n    {\n        \"item_id\": \"I002\",\n        \"AVG(rating)\": \"4.0000\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Sort High - Low",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlUwMDEiLCJpYXQiOjE2ODgwNDQ5ODgsImV4cCI6MTY4ODA4MDk4OH0.SzbdaMzG0eAyqvrtcSDbRa0J1tMPLrB_eMLCgO8vLn0",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:3000/api/review/sortHigh",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"review",
+								"sortHigh"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sort High - Low",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-auth-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlUwMDEiLCJpYXQiOjE2ODgwNDQ5ODgsImV4cCI6MTY4ODA4MDk4OH0.SzbdaMzG0eAyqvrtcSDbRa0J1tMPLrB_eMLCgO8vLn0",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "localhost:3000/api/review/sortHigh",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"review",
+										"sortHigh"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "187"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bb-RmskH3MlFSwhhYQ5UYGfzJREn6o\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 29 Jun 2023 14:15:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"review_id\": \"R002\",\n        \"item_id\": \"I002\",\n        \"rating\": 5,\n        \"content\": \"mantab sekali\",\n        \"AVG(rating)\": \"4.0000\"\n    },\n    {\n        \"review_id\": \"R001\",\n        \"item_id\": \"I001\",\n        \"rating\": 4,\n        \"content\": \"gut\",\n        \"AVG(rating)\": \"3.6667\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Kesimpulan Review",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlUwMDEiLCJpYXQiOjE2ODgwNDQ5ODgsImV4cCI6MTY4ODA4MDk4OH0.SzbdaMzG0eAyqvrtcSDbRa0J1tMPLrB_eMLCgO8vLn0",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "item_id",
+									"value": "",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/api/review/kesimpulan",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"review",
+								"kesimpulan"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Folder ini berisi sekumpulan request yang berhubungan dengan data review"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.environment.get(\"variable_key\");"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

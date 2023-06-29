@@ -16,11 +16,15 @@ router.get("/users", getUser)
 router.get("/users/:username", searchUser)
 
 //REVIEW ENDPOINT
-const { postReview, deleteReview } = require("../controller/postController")
+const { postReview, deleteReview, editReview,sortLow, sortHigh, kesimpulan } = require("../controller/postController")
 
 //review
 router.post("/review", postReview)
 router.delete("/review/:review_id", deleteReview)
+router.put("/review/:review_id", editReview)
+router.get("/review/sortHigh", sortHigh)
+router.get("/review/sortLow", sortLow)
+router.get("/review/kesimpulan", kesimpulan)
 
 
 
