@@ -173,8 +173,8 @@
     "sqlstring": "^2.3.1",
     "statuses": "^2.0.1",
     "streamsearch": "^1.1.0",
-    "string_decoder": "^1.1.1",
     "string-width": "^4.2.3",
+    "string_decoder": "^1.1.1",
     "strip-ansi": "^6.0.1",
     "supports-color": "^5.5.0",
     "supports-preserve-symlinks-flag": "^1.0.0",
@@ -205,6 +205,7 @@
     "yargs": "^16.2.0",
     "yargs-parser": "^20.2.9"
   },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
