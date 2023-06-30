@@ -177,7 +177,6 @@ const deleteReview = async (req, res) => {
             } 
 
             const reviewFound = await findReviewById(review_id);
-
             const response = {
                 message: "Review has been deleted",
                 review_id: reviewFound.review_id,
@@ -256,9 +255,6 @@ const sortLow = async (req, res) => {
         return res.status(400).send({message: "Token tidak ditemukan"})
     }
 
-//     const sort = Joi.string().required();
-//     const validationResult = sort.validate(req.body.username);
-
     try{
         let userdata = jwt.verify(token, JWT_KEY)
         
@@ -325,9 +321,6 @@ const sortHigh = async (req, res) => {
     if(!req.header("x-auth-token")){
         return res.status(400).send({message: "Token tidak ditemukan"})
     }
-
-    // const sort = Joi.string().required();
-    // const validationResult = sort.validate(req.body.username);
 
     try{
         let userdata = jwt.verify(token, JWT_KEY)
@@ -424,7 +417,7 @@ async function findUserById(admin_id) {
         replacements: [`%${admin_id}%`],
       }
     );
-    if (reviews === undefined) {
+    if (admins === undefined) {
         throw new Error("Admin tidak ditemukan");
       }
     return admins[0];
