@@ -437,7 +437,13 @@ async function getAvgReviewLowest() {
     return reviews;
 }
 async function getAvgReviewHighest() {
-    
+    let [reviews, metadata] = await sequelize.query(
+    "SELECT item_id, AVG(rating) FROM reviews GROUP BY item_id ORDER BY AVG(rating) DESC",
+    {
+        type: Sequelize.SELECT,
+    }
+    );
+    return reviews;
 }
 
 async function getAllItems() {
