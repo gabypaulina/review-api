@@ -44,11 +44,13 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/api/users/register",
+							"raw": "https://petite-literate-kidney.glitch.me/api/users/register",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"petite-literate-kidney",
+								"glitch",
+								"me"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"users",
@@ -58,89 +60,6 @@
 						"description": "Ini adalah endpoint untuk register. Parameter yang diminta adalah id developer yang hendak register."
 					},
 					"response": [
-						{
-							"name": "Register Developer",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "username",
-											"value": "ok",
-											"description": "Username yang akan digunakan. Wajib diisi dan unik.",
-											"type": "default"
-										},
-										{
-											"key": "email",
-											"value": "oke@gmail.com",
-											"description": "Email yang hendak digunakan. Wajib diisi.",
-											"type": "default"
-										},
-										{
-											"key": "password",
-											"value": "12345",
-											"description": "Password yang ingin digunakan. Wajib diisi.",
-											"type": "default"
-										},
-										{
-											"key": "role",
-											"value": "a",
-											"description": "Pilih peran sebagai admin/user. Isi dengan abjad. Wajib diisi.",
-											"type": "default"
-										}
-									]
-								},
-								"url": {
-									"raw": "localhost:3000/api/users/register",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"api",
-										"users",
-										"register"
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "109"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"6d-MWZ0Hj7Zv34n6qm28e7KMSXnXOg\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 29 Jun 2023 16:36:13 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"admin_id\": \"A003\",\n    \"username\": \"ok\",\n    \"password\": \"12345\",\n    \"email\": \"oke@gmail.com\",\n    \"api_key\": \"ckjqi\",\n    \"api_hit\": 10\n}"
-						},
 						{
 							"name": "Register User",
 							"originalRequest": {
@@ -176,11 +95,13 @@
 									]
 								},
 								"url": {
-									"raw": "localhost:3000/api/users/register",
+									"raw": "https://petite-literate-kidney.glitch.me/api/users/register",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"petite-literate-kidney",
+										"glitch",
+										"me"
 									],
-									"port": "3000",
 									"path": [
 										"api",
 										"users",
@@ -193,8 +114,8 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
+									"key": "Date",
+									"value": "Fri, 30 Jun 2023 17:40:57 GMT"
 								},
 								{
 									"key": "Content-Type",
@@ -205,24 +126,101 @@
 									"value": "57"
 								},
 								{
-									"key": "ETag",
-									"value": "W/\"39-NYDk6cK66PUN6SZ/9fjyMWHUpBM\""
+									"key": "Connection",
+									"value": "keep-alive"
 								},
 								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"39-91eg/0ABE8I1h3SJHEJeuFiL32I\""
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"idUser\": \"U004\",\n    \"username\": \"ok\",\n    \"email\": \"oke@gmail.com\"\n}"
+						},
+						{
+							"name": "Register Developer",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "ok",
+											"description": "Username yang akan digunakan. Wajib diisi dan unik.",
+											"type": "default"
+										},
+										{
+											"key": "email",
+											"value": "oke@gmail.com",
+											"description": "Email yang hendak digunakan. Wajib diisi.",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "12345",
+											"description": "Password yang ingin digunakan. Wajib diisi.",
+											"type": "default"
+										},
+										{
+											"key": "role",
+											"value": "a",
+											"description": "Pilih peran sebagai admin/user. Isi dengan abjad. Wajib diisi.",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://petite-literate-kidney.glitch.me/api/users/register",
+									"protocol": "https",
+									"host": [
+										"petite-literate-kidney",
+										"glitch",
+										"me"
+									],
+									"path": [
+										"api",
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
 									"key": "Date",
-									"value": "Thu, 29 Jun 2023 16:36:37 GMT"
+									"value": "Fri, 30 Jun 2023 17:41:49 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "109"
 								},
 								{
 									"key": "Connection",
 									"value": "keep-alive"
 								},
 								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"6d-bvnbse2hm4Tz/jqxnubK4tHflVA\""
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"idUser\": \"U003\",\n    \"username\": \"ok\",\n    \"email\": \"oke@gmail.com\"\n}"
+							"body": "{\n    \"admin_id\": \"A004\",\n    \"username\": \"ok\",\n    \"password\": \"12345\",\n    \"email\": \"oke@gmail.com\",\n    \"api_key\": \"jex03\",\n    \"api_hit\": 10\n}"
 						}
 					]
 				},
@@ -239,7 +237,7 @@
 							"urlencoded": [
 								{
 									"key": "id",
-									"value": "A001",
+									"value": "U001",
 									"description": "id yang hendak login. Wajib ada.",
 									"type": "default"
 								},
@@ -289,11 +287,13 @@
 									]
 								},
 								"url": {
-									"raw": "localhost:3000/api/users/login",
+									"raw": "https://petite-literate-kidney.glitch.me/api/users/login",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"petite-literate-kidney",
+										"glitch",
+										"me"
 									],
-									"port": "3000",
 									"path": [
 										"api",
 										"users",
@@ -306,8 +306,8 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
+									"key": "Date",
+									"value": "Fri, 30 Jun 2023 17:43:05 GMT"
 								},
 								{
 									"key": "Content-Type",
@@ -318,24 +318,20 @@
 									"value": "217"
 								},
 								{
-									"key": "ETag",
-									"value": "W/\"d9-p+tLNjEB+cCXLq76ULkXE1ewM9A\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 29 Jun 2023 15:42:03 GMT"
-								},
-								{
 									"key": "Connection",
-									"value": "keep-alive"
+									"value": "close"
 								},
 								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"d9-+LhTDl1fTJMsw9px4tvA1X8gLLA\""
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"result\": {\n        \"user\": \"A001\",\n        \"api_hit\": 7,\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoieXdpbjAiLCJpZCI6IkEwMDEiLCJpYXQiOjE2ODgwNTMzMjMsImV4cCI6MTY4ODA1NjkyM30.HElHdlVCXoPHdWdUHYvprD-lvHrl7ULnWaFC4YIMKoI\"\n    }\n}"
+							"body": "{\n    \"result\": {\n        \"user\": \"A001\",\n        \"api_hit\": 2,\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoieXdpbjAiLCJpZCI6IkEwMDEiLCJpYXQiOjE2ODgxNDY5ODUsImV4cCI6MTY4ODE1MDU4NX0.mOAerPwfA6CnaSCHcke0UKByKoNZY0e27w_gK59CgPM\"\n    }\n}"
 						},
 						{
 							"name": "Login User",
@@ -360,11 +356,13 @@
 									]
 								},
 								"url": {
-									"raw": "localhost:3000/api/users/login",
+									"raw": "https://petite-literate-kidney.glitch.me/api/users/login",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"petite-literate-kidney",
+										"glitch",
+										"me"
 									],
-									"port": "3000",
 									"path": [
 										"api",
 										"users",
@@ -377,8 +375,8 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
+									"key": "Date",
+									"value": "Fri, 30 Jun 2023 17:43:28 GMT"
 								},
 								{
 									"key": "Content-Type",
@@ -389,24 +387,20 @@
 									"value": "170"
 								},
 								{
-									"key": "ETag",
-									"value": "W/\"aa-2o17Nr64Hya6ri7mWljWJMV1DS0\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 29 Jun 2023 16:32:21 GMT"
-								},
-								{
 									"key": "Connection",
-									"value": "keep-alive"
+									"value": "close"
 								},
 								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"aa-+rKAJBrDMSZ9Hf22c/fbBlCvFlY\""
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"user\": \"U001\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlUwMDEiLCJpYXQiOjE2ODgwNTYzNDEsImV4cCI6MTY4ODA5MjM0MX0.uHouE5v-6zsyStgXiezP-Oz1_xfjO_8fMwD6_Sf0cy0\"\n}"
+							"body": "{\n    \"user\": \"U001\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlUwMDEiLCJpYXQiOjE2ODgxNDcwMDgsImV4cCI6MTY4ODE1MDYwOH0.qUNpwkTa0-Ar9z0ny8WFUF5wmb7rtJJvT8Ez5bhIZL0\"\n}"
 						}
 					]
 				}
@@ -429,11 +423,13 @@
 							"urlencoded": []
 						},
 						"url": {
-							"raw": "localhost:3000/api/users",
+							"raw": "https://petite-literate-kidney.glitch.me/api/users",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"petite-literate-kidney",
+								"glitch",
+								"me"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"users"
@@ -452,11 +448,13 @@
 									"urlencoded": []
 								},
 								"url": {
-									"raw": "localhost:3000/api/users",
+									"raw": "https://petite-literate-kidney.glitch.me/api/users",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"petite-literate-kidney",
+										"glitch",
+										"me"
 									],
-									"port": "3000",
 									"path": [
 										"api",
 										"users"
@@ -468,8 +466,8 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
+									"key": "Date",
+									"value": "Fri, 30 Jun 2023 17:44:01 GMT"
 								},
 								{
 									"key": "Content-Type",
@@ -477,27 +475,23 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "109"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"6d-Wwm0KI1CKYswRFFtZ/2QN/YPvjc\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 29 Jun 2023 16:43:21 GMT"
+									"value": "144"
 								},
 								{
 									"key": "Connection",
 									"value": "keep-alive"
 								},
 								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"90-2CCRjpRho7/tGDLGyY22P2sYGtw\""
 								}
 							],
 							"cookie": [],
-							"body": "[\n    {\n        \"idUser\": \"U001\",\n        \"username\": \"stst\"\n    },\n    {\n        \"idUser\": \"U002\",\n        \"username\": \"nyenye\"\n    },\n    {\n        \"idUser\": \"U003\",\n        \"username\": \"ok\"\n    }\n]"
+							"body": "[\n    {\n        \"idUser\": \"U001\",\n        \"username\": \"stst\"\n    },\n    {\n        \"idUser\": \"U002\",\n        \"username\": \"nyenye\"\n    },\n    {\n        \"idUser\": \"U003\",\n        \"username\": \"aaa\"\n    },\n    {\n        \"idUser\": \"U004\",\n        \"username\": \"ok\"\n    }\n]"
 						}
 					]
 				},
@@ -507,11 +501,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/api/users/:username",
+							"raw": "https://petite-literate-kidney.glitch.me/api/users/:username",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"petite-literate-kidney",
+								"glitch",
+								"me"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"users",
@@ -532,11 +528,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:3000/api/users/:username",
+									"raw": "https://petite-literate-kidney.glitch.me/api/users/:username",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"petite-literate-kidney",
+										"glitch",
+										"me"
 									],
-									"port": "3000",
 									"path": [
 										"api",
 										"users",
@@ -555,8 +553,8 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
+									"key": "Date",
+									"value": "Fri, 30 Jun 2023 17:44:24 GMT"
 								},
 								{
 									"key": "Content-Type",
@@ -567,20 +565,16 @@
 									"value": "37"
 								},
 								{
-									"key": "ETag",
-									"value": "W/\"25-tLj8aaRh4xwB/7FBd+zqZBBDxRs\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 29 Jun 2023 16:44:39 GMT"
-								},
-								{
 									"key": "Connection",
 									"value": "keep-alive"
 								},
 								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"25-tLj8aaRh4xwB/7FBd+zqZBBDxRs\""
 								}
 							],
 							"cookie": [],
@@ -601,7 +595,7 @@
 						"header": [
 							{
 								"key": "x-auth-token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlUwMDEiLCJpYXQiOjE2ODgwNTI5MjAsImV4cCI6MTY4ODA1NjUyMH0.ZdPp4hEEEN9AtIsZlya1a8OGl6vGy-Cf40aF_4bomOI",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlUwMDEiLCJpYXQiOjE2ODgxNTQzNjEsImV4cCI6MTY4ODE1Nzk2MX0.VYyxXUSKCGAuOl3EPSRol-F8hE8dHYG9S8UBznzHIrY",
 								"type": "default"
 							}
 						],
@@ -610,7 +604,7 @@
 							"urlencoded": [
 								{
 									"key": "item_id",
-									"value": "I001",
+									"value": "7",
 									"type": "default"
 								},
 								{
@@ -626,18 +620,98 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/api/review",
+							"raw": "https://petite-literate-kidney.glitch.me/api/review",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"petite-literate-kidney",
+								"glitch",
+								"me"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"review"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Post Review",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-auth-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlUwMDEiLCJpYXQiOjE2ODgxNDcwMDgsImV4cCI6MTY4ODE1MDYwOH0.qUNpwkTa0-Ar9z0ny8WFUF5wmb7rtJJvT8Ez5bhIZL0",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "item_id",
+											"value": "7",
+											"type": "default"
+										},
+										{
+											"key": "rating",
+											"value": "4",
+											"type": "default"
+										},
+										{
+											"key": "content",
+											"value": "de bestt",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://petite-literate-kidney.glitch.me/api/review",
+									"protocol": "https",
+									"host": [
+										"petite-literate-kidney",
+										"glitch",
+										"me"
+									],
+									"path": [
+										"api",
+										"review"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jun 2023 17:48:48 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "663"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"297-Z8xkYjA6Emva5kHraiIqyR0/lpI\""
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"review_id\": \"R002\",\n    \"item_id\": \"7\",\n    \"item_desc\": {\n        \"id\": 7,\n        \"slug\": \"yotpo-button\",\n        \"name\": \"Yotpo Button\",\n        \"images\": [\n            {\n                \"id\": 6,\n                \"image_url\": \"https://cdn-yotpo-images-production.yotpo.com/Product/7/6/thumb.png?1453892125\",\n                \"image_content_type\": \"image/png\",\n                \"big_image_url\": \"https://cdn-yotpo-images-production.yotpo.com/Product/7/6/big.png?1453892125\"\n            }\n        ],\n        \"featured_image_id\": 6,\n        \"total_reviews\": 23,\n        \"new_reviews\": 0,\n        \"published_reviews\": 12,\n        \"pend_for_web_reviews\": 0,\n        \"domain_key\": \"62050632\",\n        \"app_key\": \"B02uug6tF2uEA0Denhj0c9PV73y5PEOuKFmTCGb1\",\n        \"bread_crumbs\": \"button;\",\n        \"last_mention\": \"2020-03-25T14:11:06.000Z\",\n        \"updated_at\": \"2014-04-09T23:41:02.000Z\"\n    },\n    \"rating\": \"4\",\n    \"content\": \"de bestt\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Delete Review",
@@ -646,7 +720,7 @@
 						"header": [
 							{
 								"key": "x-auth-token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoieXdpbjAiLCJpZCI6IkEwMDEiLCJpYXQiOjE2ODgwNTMzMjMsImV4cCI6MTY4ODA1NjkyM30.HElHdlVCXoPHdWdUHYvprD-lvHrl7ULnWaFC4YIMKoI",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoieXdpbjAiLCJpZCI6IkEwMDEiLCJpYXQiOjE2ODgxNTcwOTEsImV4cCI6MTY4ODE2MDY5MX0.monJWdAWQmMWhOy0R_-9l1qx9o3HIqTlwflb6GQjoRc",
 								"type": "default"
 							}
 						],
@@ -655,11 +729,13 @@
 							"urlencoded": []
 						},
 						"url": {
-							"raw": "localhost:3000/api/review/:review_id",
+							"raw": "https://petite-literate-kidney.glitch.me/api/review/:review_id",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"petite-literate-kidney",
+								"glitch",
+								"me"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"review",
@@ -668,7 +744,7 @@
 							"variable": [
 								{
 									"key": "review_id",
-									"value": "R001"
+									"value": "R002"
 								}
 							]
 						}
@@ -753,7 +829,7 @@
 						"header": [
 							{
 								"key": "x-auth-token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlUwMDEiLCJpYXQiOjE2ODgwMjczNDMsImV4cCI6MTY4ODAzMDk0M30.J_22B9kiJHZfdQQY5PMVRlLNalj5Yq86qadWotjXyn0",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlUwMDEiLCJpYXQiOjE2ODgxNTc4MTAsImV4cCI6MTY4ODE2MTQxMH0.nVYvF4MDysF4Fm5DywtukOcs2xFONjz42u97qkinkFo",
 								"type": "default"
 							}
 						],
@@ -779,11 +855,13 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/api/review/:review_id",
+							"raw": "https://petite-literate-kidney.glitch.me/api/review/:review_id",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"petite-literate-kidney",
+								"glitch",
+								"me"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"review",
@@ -897,7 +975,7 @@
 						"header": [
 							{
 								"key": "x-auth-token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlUwMDEiLCJpYXQiOjE2ODgwNDQ5ODgsImV4cCI6MTY4ODA4MDk4OH0.SzbdaMzG0eAyqvrtcSDbRa0J1tMPLrB_eMLCgO8vLn0",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlUwMDEiLCJpYXQiOjE2ODgxNTUyNDgsImV4cCI6MTY4ODE1ODg0OH0.-OjNPiW6kU7jrcMxK3X8eOp8yMHmW0sIelzyTAeUxVw",
 								"type": "default"
 							}
 						],
@@ -906,11 +984,13 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "localhost:3000/api/review/sortLow",
+							"raw": "https://petite-literate-kidney.glitch.me/api/review/sortLow",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"petite-literate-kidney",
+								"glitch",
+								"me"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"review",
@@ -926,7 +1006,7 @@
 								"header": [
 									{
 										"key": "x-auth-token",
-										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlUwMDEiLCJpYXQiOjE2ODgwNDQ5ODgsImV4cCI6MTY4ODA4MDk4OH0.SzbdaMzG0eAyqvrtcSDbRa0J1tMPLrB_eMLCgO8vLn0",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlUwMDEiLCJpYXQiOjE2ODgxNTA3MjksImV4cCI6MTY4ODE1NDMyOX0.EwTUPmMZRAy3i4Fl4nRcM6imHF4jM1-M0irraqgcQWc",
 										"type": "default"
 									}
 								],
@@ -935,11 +1015,13 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "localhost:3000/api/review/sortLow",
+									"raw": "https://petite-literate-kidney.glitch.me/api/review/sortLow",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"petite-literate-kidney",
+										"glitch",
+										"me"
 									],
-									"port": "3000",
 									"path": [
 										"api",
 										"review",
@@ -952,8 +1034,8 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
+									"key": "Date",
+									"value": "Fri, 30 Jun 2023 18:46:10 GMT"
 								},
 								{
 									"key": "Content-Type",
@@ -961,27 +1043,23 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "85"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"55-f9sWNvaoMm1IBhExvcF1nywYybc\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 29 Jun 2023 14:15:20 GMT"
+									"value": "40"
 								},
 								{
 									"key": "Connection",
 									"value": "keep-alive"
 								},
 								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"28-BISqmLJlS47q9nvosaxh/9O17Lk\""
 								}
 							],
 							"cookie": [],
-							"body": "[\n    {\n        \"item_id\": \"I001\",\n        \"AVG(rating)\": \"3.6667\"\n    },\n    {\n        \"item_id\": \"I002\",\n        \"AVG(rating)\": \"4.0000\"\n    }\n]"
+							"body": "[\n    {\n        \"item_id\": \"7\",\n        \"AVG(rating)\": \"3.0000\"\n    }\n]"
 						}
 					]
 				},
@@ -995,7 +1073,7 @@
 						"header": [
 							{
 								"key": "x-auth-token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlUwMDEiLCJpYXQiOjE2ODgwNDQ5ODgsImV4cCI6MTY4ODA4MDk4OH0.SzbdaMzG0eAyqvrtcSDbRa0J1tMPLrB_eMLCgO8vLn0",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlUwMDEiLCJpYXQiOjE2ODgxNTUyNDgsImV4cCI6MTY4ODE1ODg0OH0.-OjNPiW6kU7jrcMxK3X8eOp8yMHmW0sIelzyTAeUxVw",
 								"type": "default"
 							}
 						],
@@ -1110,11 +1188,13 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/api/review/kesimpulan",
+							"raw": "https://petite-literate-kidney.glitch.me/api/review/kesimpulan",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"petite-literate-kidney",
+								"glitch",
+								"me"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"review",
