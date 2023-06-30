@@ -144,7 +144,6 @@ const postReview = async (req, res) => {
                 return res.status(201).send({
                     review_id: newId,
                     item_id: item_id,
-                    item_desc: item,
                     rating: rating,
                     content: content
                 });
