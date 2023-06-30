@@ -166,7 +166,7 @@ const deleteReview = async (req, res) => {
     if(!req.header("x-auth-token")){
         return res.status(400).send({message: "Token tidak ditemukan"})
     }
-
+    
     try{
         let userdata = jwt.verify(token, JWT_KEY)
         
@@ -186,12 +186,10 @@ const deleteReview = async (req, res) => {
                 rating: reviewFound.rating,
                 content: reviewFound.content,
             }
-
-            let [results, metadata] = await sequelize.query(
+            let del = await sequelize.query(
                 `delete from reviews WHERE review_id like ?`,
                 {
-                    type: sequelize.SELECT,
-                    replacements: [`%${review_id}%`],
+                    replacements: [review_id],
                 }
               );
 
@@ -239,7 +237,6 @@ const editReview = async (req, res) => {
             let [results, metadata] = await sequelize.query(
                 "UPDATE reviews SET rating=?, content=? WHERE review_id=?",
                     {
-                        type: sequelize.SELECT,
                         replacements: [req.body.rating,req.body.content,review_id],
                     }
               );
@@ -257,8 +254,6 @@ const sortLow = async (req, res) => {
         return res.status(400).send({message: "Token tidak ditemukan"})
     }
 
-    const sort = Joi.string().required();
-    const validationResult = sort.validate(req.body.username);
 
     try{
         let userdata = jwt.verify(token, JWT_KEY)
@@ -324,8 +319,6 @@ const sortHigh = async (req, res) => {
         return res.status(400).send({message: "Token tidak ditemukan"})
     }
 
-    const sort = Joi.string().required();
-    const validationResult = sort.validate(req.body.username);
 
     try{
         let userdata = jwt.verify(token, JWT_KEY)
@@ -407,11 +400,10 @@ async function kurangiApi(admin_id) {
     let [admins, metadata] = await sequelize.query(
         "UPDATE admins SET api_hit=? WHERE admin_id=?",
             {
-                type: sequelize.SELECT,
                 replacements: [totalApi, admin_id],
             }
     );
-return admins[0];
+return admins;
 }
 
 async function findUserById(admin_id) {
@@ -438,7 +430,13 @@ async function getAvgReviewLowest() {
     return reviews;
 }
 async function getAvgReviewHighest() {
-    
+    let [reviews, metadata] = await sequelize.query(
+        "SELECT item_id, AVG(rating) FROM reviews GROUP BY item_id ORDER BY AVG(rating) ASC",
+        {
+            type: Sequelize.SELECT,
+        }
+        );
+        return reviews;
 }
 
 async function getAllItems() {
