@@ -250,31 +250,33 @@ const editReview = async (req, res) => {
     }
 }
 
-const sortLow = async (req, res) => {
-    let token = req.header("x-auth-token")
-    if(!req.header("x-auth-token")){
-        return res.status(400).send({message: "Token tidak ditemukan"})
-    }
+// const sortLow = async (req, res) => {
+//     let token = req.header("x-auth-token")
+//     if(!req.header("x-auth-token")){
+//         return res.status(400).send({message: "Token tidak ditemukan"})
+//     }
 
-    const sort = Joi.string().required();
-    const validationResult = sort.validate(req.body.username);
+//     const sort = Joi.string().required();
+//     const validationResult = sort.validate(req.body.username);
 
-    try{
-        let userdata = jwt.verify(token, JWT_KEY)
+//     try{
+//         let userdata = jwt.verify(token, JWT_KEY)
         
-        // let avgItem;
-        // let itemId;
-        // var avgg;
-        // var dataavg;
+//         // let avgItem;
+//         // let itemId;
+//         // var avgg;
+//         // var dataavg;
         
-        if((userdata.id).substr(0,1) == 'U'){
-            const avg = await getAvgReviewLowest();
-            const hasil = [];
+//         if((userdata.id).substr(0,1) == 'U'){
+//             const avg = await getAvgReviewLowest();
+//             const hasil = [];
 
-            for (let i = 0; i < avg.length; i++) {
-                hasil.push(avg[i]);
-            }
+//             for (let i = 0; i < avg.length; i++) {
+//                 hasil.push(avg[i]);
+//             }
 
+
+            //
             // const allItems = await getAllItems();
             // const allReviews = await getAllReviews();
             // // const data = [][2];
@@ -309,13 +311,14 @@ const sortLow = async (req, res) => {
             //     data[i][1].push(avgItem);
 
             // }
+            //
               
-            return res.status(200).send(hasil);
-        }
-    }catch(err){
-        return res.status(400).send(err.toString())
-    }
-}
+//             return res.status(200).send(hasil);
+//         }
+//     }catch(err){
+//         return res.status(400).send(err.toString())
+//     }
+// }
 
 const sortHigh = async (req, res) => {
     let token = req.header("x-auth-token")
